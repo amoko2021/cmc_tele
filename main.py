@@ -6,6 +6,10 @@ from get_price import get_price, get_top_coin_up_24h, get_top_coin_down_24h
 import send_channel
 import threading
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # def my_function():
 #     # Hàm bạn muốn thực hiện lặp lại
@@ -25,8 +29,7 @@ import time
 # Main thread tiếp tục thực hiện các công việc khác
 
 
-BOT_TOKEN = "6215098672:AAF6Hs82QQ4kD_KFEFthSc_Qer6JHZEbipQ"
-bot = telebot.TeleBot(BOT_TOKEN) # kết nối bot
+bot = telebot.TeleBot(os.getenv("TOKEN")) # kết nối bot
 
 def back_main(id, id_message): #Quay về main
     markups = InlineKeyboardMarkup()
