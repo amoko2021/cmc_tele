@@ -1,11 +1,14 @@
 import requests
 import telebot
+import os
+from dotenv import load_dotenv
 
-BOT_TOKEN = "6215098672:AAF6Hs82QQ4kD_KFEFthSc_Qer6JHZEbipQ"
-bot = telebot.TeleBot(BOT_TOKEN)
+load_dotenv()
+
+bot = telebot.TeleBot(os.getenv("TOKEN"))
 
 # Thay thế 'YOUR_API_KEY' bằng khóa API của bạn từ CoinMarketCap
-api_key = '163fefc4-0c69-4d35-9885-b1a975dc55eb'
+api_key = os.getenv("KEY_CMC")
 
 
 def get_price(name,id, id_message): # lấy giá BTC
