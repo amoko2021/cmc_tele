@@ -44,6 +44,7 @@ def back_main(id, id_message): #Quay về main
 def welcome(message):
     markups = InlineKeyboardMarkup()
     markups.add(InlineKeyboardButton("Check giá BTC", callback_data='price_btc'))
+    markups.add(InlineKeyboardButton("Check gia ETH", callback_data='price_eth'))
     markups.add(InlineKeyboardButton("Top coin up 24h", callback_data='top_coin_up'),
                 InlineKeyboardButton("Top coin down 24h", callback_data='top_coin_down')
                 )
@@ -54,6 +55,8 @@ def welcome(message):
 def query_handler(call):
     if call.data == 'price_btc':
         get_price('btc', call.message.chat.id, call.message.message_id)
+    if call.data == 'price_eth':
+        get_price('eth', call.message.chat.id, call.message.message_id)
     if call.data == 'top_coin_up':
         get_top_coin_up_24h(call.message.chat.id, call.message.message_id)
     if call.data == 'top_coin_down':
