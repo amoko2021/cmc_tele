@@ -34,9 +34,11 @@ bot = telebot.TeleBot(os.getenv("TOKEN")) # kết nối bot
 def back_main(id, id_message): #Quay về main
     markups = InlineKeyboardMarkup()
     markups.add(InlineKeyboardButton("Check giá BTC", callback_data='price_btc'))
+    markups.add(InlineKeyboardButton("Check gia ETH", callback_data='price_eth'))
     markups.add(InlineKeyboardButton("Top coin up 24h", callback_data='top_coin_up'),
                 InlineKeyboardButton("Top coin down 24h", callback_data='top_coin_down')
                 )
+    markups.add(InlineKeyboardButton("Gửi tin nhắn lên kênh", callback_data='1send_channel'))
     
     bot.edit_message_text("Chào mừng bạn đến với bot phát triển bởi TA Capital",id, id_message, reply_markup=markups)
 
