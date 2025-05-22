@@ -30,14 +30,14 @@ def get_price(name,id, id_message): # lấy giá BTC
         price = data['data'][coin_name.upper()]['quote']['USD']['price']
 
         # In giá ra màn hình
-        print(f'Giá của {coin_name.upper()} là ${int(price)}')
+        #print(f'Giá của {coin_name.upper()} là ${int(price)}')
         # Gửi lên tele
         # bot.send_message(id, f'Giá của {coin_name.upper()} là ${int(price)}')
         bot.edit_message_text(f'Giá của {coin_name.upper()} là ${int(price)}', id, id_message, 
                               reply_markup=telebot.types.InlineKeyboardMarkup().add(telebot.types.InlineKeyboardButton('Quay lại', callback_data='back')))
         # print(data)
     else:
-        print('Không thể kết nối đến CoinMarketCap API.')
+        #print('Không thể kết nối đến CoinMarketCap API.')
         bot.send_message(id, 'Không thể kết nối đến CoinMarketCap API.')
 
 def get_top_coin_up_24h(id, id_message): # lấy giá 5 coin (từ top1 đến top 1000) tăng giá nhiều nhất trong 24h
@@ -68,7 +68,7 @@ def get_top_coin_up_24h(id, id_message): # lấy giá 5 coin (từ top1 đến t
         bot.edit_message_text(msg, id, id_message, parse_mode="Markdown",
                               reply_markup=telebot.types.InlineKeyboardMarkup().add(telebot.types.InlineKeyboardButton('Quay lại', callback_data='back')))    
     else:
-        print('Không thể kết nối đến CoinMarketCap API.')    
+        #print('Không thể kết nối đến CoinMarketCap API.')    
 
 def get_top_coin_down_24h(id, id_message): # lấy giá 5 coin (từ top1 đến top 1000) giảm giá nhiều nhất trong 24h
     url = f'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=1000&CMC_PRO_API_KEY={api_key}'
@@ -100,4 +100,4 @@ def get_top_coin_down_24h(id, id_message): # lấy giá 5 coin (từ top1 đến
                               reply_markup=telebot.types.InlineKeyboardMarkup().add(telebot.types.InlineKeyboardButton('Quay lại', callback_data='back')))               
             
     else:
-        print('Không thể kết nối đến CoinMarketCap API.')    
+        #print('Không thể kết nối đến CoinMarketCap API.')    
