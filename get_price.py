@@ -68,7 +68,7 @@ def get_top_coin_up_24h(id, id_message): # lấy giá 5 coin (từ top1 đến t
         bot.edit_message_text(msg, id, id_message, parse_mode="Markdown",
                               reply_markup=telebot.types.InlineKeyboardMarkup().add(telebot.types.InlineKeyboardButton('Quay lại', callback_data='back')))    
     else:
-        #print('Không thể kết nối đến CoinMarketCap API.')    
+        print('Không thể kết nối đến CoinMarketCap API.')    
 
 def get_top_coin_down_24h(id, id_message): # lấy giá 5 coin (từ top1 đến top 1000) giảm giá nhiều nhất trong 24h
     url = f'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=1000&CMC_PRO_API_KEY={api_key}'
@@ -100,4 +100,4 @@ def get_top_coin_down_24h(id, id_message): # lấy giá 5 coin (từ top1 đến
                               reply_markup=telebot.types.InlineKeyboardMarkup().add(telebot.types.InlineKeyboardButton('Quay lại', callback_data='back')))               
             
     else:
-        #print('Không thể kết nối đến CoinMarketCap API.')    
+        print('Không thể kết nối đến CoinMarketCap API.')    
